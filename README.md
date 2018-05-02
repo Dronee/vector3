@@ -3,7 +3,7 @@ Easy vector, quaternion library designed for rotations and sensor fusion filters
 It is also mobile device agnostic as mobile devices,such as iphones use y axis front and pitch is around X axis.
 Example codes:
 ```c++
- auto v = Vector3::X;
+    auto v = Vector3::X;
     auto roll = rad(40.0);
     auto pitch = rad(40.0);
     auto yaw = rad(40.0);
