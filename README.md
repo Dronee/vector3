@@ -4,6 +4,7 @@ It is also mobile device agnostic as mobile devices,such as iphones use y axis f
 Example codes:
 ```c++
     using namespace vector3;
+    
     auto v = Vector3::X;
     auto roll = rad(40.0);
     auto pitch = rad(40.0);
