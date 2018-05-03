@@ -11,6 +11,7 @@ Example codes:
     auto roll = rad(40.0);
     auto pitch = rad(40.0);
     auto yaw = rad(40.0);
+    
     auto q = Quaternion(roll,pitch,yaw);
     
     q = Quaternion(roll,pitch,yaw,RotationOrder::rpy);
