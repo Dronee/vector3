@@ -21,8 +21,11 @@ Example codes:
     
     Quaternion q1 = v.rotation(to);
     
-    std::cout << "roll: " << deg(q.roll())<<", pitch: " << deg(q.pitch()) << ", yaw: " << deg(q.yaw()) << endl;
-    std::cout << "roll: " << deg(to.roll())<<", pitch: " << deg(to.pitch()) << ", yaw: " << deg(to.yaw()) << endl;
+    std::cout << "roll: " << deg(q.roll())<<", pitch: " << deg(q.pitch()) 
+              << ", yaw: " << deg(q.yaw()) << endl;
+    
+    std::cout << "roll: " << deg(to.roll())<<", pitch: " << deg(to.pitch()) 
+              << ", yaw: " << deg(to.yaw()) << endl;
 ```
 
 by Maksim Piriyev @ https://dron.ee
