@@ -7,14 +7,20 @@ Example codes:
     using namespace vector3;
     
     auto v = Vector3::X;
+    
     auto roll = rad(40.0);
     auto pitch = rad(40.0);
     auto yaw = rad(40.0);
     auto q = Quaternion(roll,pitch,yaw);
+    
     q = Quaternion(roll,pitch,yaw,RotationOrder::rpy);
+    
     q = q*Quaternion(roll,0,0);
+    
     Vector3 to = v*q;
+    
     Quaternion q1 = v.rotation(to);
+    
     std::cout << "roll: " << deg(q.roll())<<", pitch: " << deg(q.pitch()) << ", yaw: " << deg(q.yaw()) << endl;
     std::cout << "roll: " << deg(to.roll())<<", pitch: " << deg(to.pitch()) << ", yaw: " << deg(to.yaw()) << endl;
 ```
