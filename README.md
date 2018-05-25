@@ -100,30 +100,32 @@ It is also mobile device agnostic as mobile devices,such as iphones use y axis f
     ```
 # file operations
 File read/write operations are simplified
-* reading vector3 list
-    ```c+++
+* reading vector3 list from file
+    ```c++
         vector<Vector3> rtn;
         ifstream(path)>>rtn;
     ```
-* reading SensorData list
-    ```c+++
+* reading SensorData list from file
+    ```c++
         vector<SensorData> rtn;
         ifstream(path)>>rtn;
     ```
-* writing vector3 list
-    ```c+++
+* writing vector3 list to file
+    ```c++
         vector<Vector3> rtn = {Vector3::X,Vector3::Y,Vector3::Z};
         ofstream(path)<<rtn<<endl;
     ```
-* writing SensorData list
-    ```c+++
+* writing SensorData list to file
+    ```c++
         vector<SensorData> rtn;
         ofstream(path)<<rtn<<endl;
     ```
     
 # n dimensional ternary search
 * use n dimensional search when local minima is equal to global minima, otherwise it probably will find one of local minimas
-    ```vector<scalar> ternary(vector<scalar> start, vector<scalar> end, function<scalar(vector<scalar>)> eval);```
+    ```c++
+    vector<scalar> ternary(vector<scalar> start, vector<scalar> end, function<scalar(vector<scalar>)> eval);
+    ```
 * exmaple code for finding  calibration parameters of magnetometer
      ```c++
      void findMagBiasCollectively(const vector<SensorData>& list){
