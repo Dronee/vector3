@@ -3,8 +3,8 @@ Easy vector, quaternion library designed for rotations and sensor fusion filters
 It is also mobile device agnostic as mobile devices,such as iphones use y axis front and pitch is around X axis.
 
 # quaternions
-  concatanating rotations is as simple as multiplying quaternions (q1,q2,q3,q4) in respective order
-    ```c++ q1*q2*q3*q4 ``` 
+concatanating rotations is as simple as multiplying quaternions (q1,q2,q3,q4) in respective order
+    ``` q1*q2*q3*q4 ``` 
     rotating vector3 is as simple as multiplying with quaternion
     ``` v1*q1 ```
     reverse rotation is negating
