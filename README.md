@@ -3,6 +3,30 @@ Easy vector, quaternion library designed for rotations and sensor fusion filters
 It is also mobile device agnostic as mobile devices,such as iphones use y axis front and pitch is around X axis.
 
 # quaternions
+* quaternion from euler all the angles should be in radians
+    ```c++
+    auto roll = rad(40.0);
+    auto pitch = rad(40.0);
+    auto yaw = rad(40.0);
+    auto q = Quaternion(roll,pitch,yaw);
+    ``` 
+ * change euler order in constructor of specific quaternion,ex: first roll then pitch then yaw
+    ```c++
+    auto roll = rad(40.0);
+    auto pitch = rad(40.0);
+    auto yaw = rad(40.0);
+    auto q = Quaternion(roll,pitch,yaw,RotationOrder::rpy);
+    ``` 
+ * to euler as roll,pitch,yaw
+    ```c++
+    auto roll =  Quaternion(roll,pitch,yaw).roll();
+    auto pitch =  Quaternion(roll,pitch,yaw).pitch();
+    auto yaw =  Quaternion(roll,pitch,yaw).yaw();
+    ``` 
+* to euler as Vector3
+    ```c++
+    Vector3 euler =  Quaternion(roll,pitch,yaw).euler();
+    ``` 
 * concatanating rotations is as simple as multiplying quaternions (q1,q2,q3,q4) in respective order
     ``` q1*q2*q3*q4 ``` 
 * rotating vector3 is as simple as multiplying with quaternion
@@ -23,6 +47,12 @@ It is also mobile device agnostic as mobile devices,such as iphones use y axis f
     ``` Vector3 v = Vector3::X; ```
 * c++11 version
     ``` auto v = Vector3::X; ```
+* to Vector2
+    ```c++
+    Vector2 xy = Vector3::X.xy(); 
+    auto xz = Vector3::X.xz(); 
+    auto yz = Vector3::X.yz(); 
+    ```
 * negating
     ``` auto negx = -Vector3::X; ```
 * arithmetic operations
@@ -33,6 +63,11 @@ It is also mobile device agnostic as mobile devices,such as iphones use y axis f
     ```c++
         Vector3 coef(0.5,0.3,0.1);
         auto v = coef*Vector::X;
+     ```
+* angle between two  vectors
+    ```c++
+        auto angleInRad = Vector3::X.angle(Vector3::Y);
+        auto angleInDegree = deg(angleInRad);
      ```
 * using in filtering
      ```c++
