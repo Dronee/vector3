@@ -4,7 +4,7 @@ It is also mobile device agnostic as mobile devices,such as iphones use y axis f
 
 # quaternions
   concatanating rotations is as simple as multiplying quaternions (q1,q2,q3,q4) in respective order
-    ``` q1*q2*q3*q4 ``` 
+    ```c++ q1*q2*q3*q4 ``` 
     rotating vector3 is as simple as multiplying with quaternion
     ``` v1*q1 ```
     reverse rotation is negating
