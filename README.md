@@ -122,9 +122,9 @@ File read/write operations are simplified
     ```
     
 # n dimensional ternary search
-use n dimensional search when local minima is equal to global minima, otherwise it probably will find one of local minimas
+* use n dimensional search when local minima is equal to global minima, otherwise it probably will find one of local minimas
     ```vector<scalar> ternary(vector<scalar> start, vector<scalar> end, function<scalar(vector<scalar>)> eval);```
-exmaple code for finding  calibration parameters of magnetometer
+* exmaple code for finding  calibration parameters of magnetometer
      ```c++
      void findMagBiasCollectively(const vector<SensorData>& list){
         if(list.size()==0) return;
