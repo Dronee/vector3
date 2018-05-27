@@ -62,7 +62,7 @@ It is also mobile device agnostic as mobile devices,such as iphones use y axis f
 * multiplying with vector
     ```c++
         Vector3 coef(0.5,0.3,0.1);
-        auto v = coef*Vector::X;
+        auto v = coef*Vector3::X;
      ```
 * angle between two  vectors
     ```c++
@@ -72,15 +72,15 @@ It is also mobile device agnostic as mobile devices,such as iphones use y axis f
 * using in filtering
      ```c++
         auto beta = 0.1;
-        auto result = Vector::X*beta + Vector::Y*(1-beta);
+        auto result = Vector3::X*beta + Vector3::Y*(1-beta);
      ```
 * rotation quaternion between two vectors
      ``` Quaternion q = Vector3::X.rotation(Vector3::Y); ```
 * rotation quaternion around specific axis (not that there are many axis that can yield to same roation result)
      ``` Quaternion q = Vector3::X.rotation(Vector3::Y,-Vector3::Z); ```
 * to array 
-     ```vector<scalar> v = Vector3::X.array();```
-* from array 
+     ```vector<scalar> v = Vector3::X;```
+* from array or initializer_list
      ```Vector3 v = {0.2,0.30,0.5};```
 * from vector iterator
      ```c++
@@ -94,12 +94,7 @@ It is also mobile device agnostic as mobile devices,such as iphones use y axis f
         inline scalar deg(scalar rad);
 
     ```
-* degree to radian and vice versa conversion
-     ```c++
-        inline scalar rad(scalar deg);
-        inline scalar deg(scalar rad);
 
-    ```
 * max,min,pow,abs
     ```c+++
         inline Vector3 pow(const Vector3& v,scalar p);
@@ -109,7 +104,8 @@ It is also mobile device agnostic as mobile devices,such as iphones use y axis f
     ```
 
 # mobile device vs others
-* define ```MOBILE``` if your application is for mobile or mobile data
+* mobile devices definition of roll,pitch and reference frame XYZ is different than other engineering areas,
+  define ```MOBILE``` if your application is for mobile or mobile data
     ``` #define MOBILE ````
 * it is also automatically defined in header as
     ```c+++
@@ -171,10 +167,9 @@ File read/write operations are simplified
             mx = vector3::max(i.v,mx);
             mn = vector3::min(i.v,mn);
         }
-        auto mxl = {1.0,2.0,2.0};
-         auto mnl = {1.0,0.0,0.0};
+
         auto biasList =
-        vector3::ternary( mn.array()   , mx.array() , [&](vector<scalar> p){
+        vector3::ternary( mn.array()   , mx , [&](vector<scalar> p){
             Vector3 v(p);
             auto r = 0.0;
             for(auto i : mlist){
